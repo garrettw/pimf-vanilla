@@ -6,8 +6,6 @@
 */
 include_once 'app/bootstrap.app.php';
 
-use \Pimf\Application as App;
+$app->run($_GET, $_POST, $_COOKIE, $_FILES);
 
-App::run($_GET, $_POST, $_COOKIE, $_FILES);
-
-App::finish();
+\Pimf\finish();

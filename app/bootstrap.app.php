@@ -13,6 +13,4 @@ require_once BASE_PATH .'pimf-framework/autoload.core.php';
 require_once BASE_PATH .'app/autoload.app.php';
 require_once BASE_PATH .'pimf-framework/utils.php';
 
-use \Pimf\Application as App;
-
-App::bootstrap($config, $_SERVER);
+$app = new \Pimf\Application(new \Pimf\Config($config, $_SERVER));
