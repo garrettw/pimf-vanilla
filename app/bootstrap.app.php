@@ -13,4 +13,7 @@ require_once BASE_PATH .'pimf-framework/autoload.core.php';
 require_once BASE_PATH .'app/autoload.app.php';
 require_once BASE_PATH .'pimf-framework/utils.php';
 
-$app = new \Pimf\Application(new \Pimf\Config($config, $_SERVER));
+$app = new \Pimf\Application(
+    new \Pimf\Config($config),
+    new \Pimf\Environment(new \Pimf\Param($_SERVER))
+);
