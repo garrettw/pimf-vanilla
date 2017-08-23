@@ -4,16 +4,16 @@
 | PIMF bootstrap
 |--------------------------------------------------------------------------
 */
-if(!defined('DS')) define('DS', DIRECTORY_SEPARATOR, true);
-if(!defined('BASE_PATH')) define('BASE_PATH', realpath(dirname(dirname(__FILE__))) . DS, true);
+namespace Pimf;
 
-$config = include_once BASE_PATH .'app/config.app.php';
+require_once BASE_PATH .'pimf-framework/utils.php';
+setBasePath(__FILE__);
 
 require_once BASE_PATH .'pimf-framework/autoload.core.php';
 require_once BASE_PATH .'app/autoload.app.php';
-require_once BASE_PATH .'pimf-framework/utils.php';
+require_once BASE_PATH .'app/config.app.php';
 
-$app = new \Pimf\Application(
-    new \Pimf\Config($config),
-    new \Pimf\Environment(new \Pimf\Param($_SERVER))
+$app = new Application(
+    new Config($config),
+    new Environment(new Param($_SERVER))
 );

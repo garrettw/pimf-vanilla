@@ -7,29 +7,10 @@
 | class to file path maps for ultra-fast file loading.
 |--------------------------------------------------------------------------
 */
-spl_autoload_register(
-  function ($class) {
-
-    // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    // FEEL FREE TO CHANGE THE MAPPINGS AND DIRECTORIES
-    // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-
-    /**
-     * The mappings from class names to file paths.
-     */
-    static $mappings = array(
-      'Vanilla\\Controller\\Hello'  => '/Vanilla/Controller/Hello.php',
-    );
-
-    // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    //  END OF USER CONFIGURATION!!!
-    // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-
-    // load the class from the static heap of classes.
-    if (isset($mappings[$class])) {
-      return require __DIR__ . DIRECTORY_SEPARATOR . $mappings[$class];
-    }
-
-    return false;
-  }
+\Pimf\autoload(
+  __DIR__,
+  [
+    // The mappings from class names to file paths.
+    'Vanilla\\Controller\\Hello'  => '/Vanilla/Controller/Hello.php',
+  ]
 );
